@@ -33,8 +33,14 @@ def getStockData(stockId, days):
     # 找不到資料回傳None
     if response.status_code == 404:
         return None
-
+    
     df = pd.read_csv(StringIO(response.text),index_col = "Date",parse_dates = ["Date"])
+    
+    '''
+    新增需要的資訊
+    '''
+
+    # KD
     df['k'], df['d'] = talib.STOCH(df['High'], 
                                             df['Low'], 
                                             df['Close'], 
