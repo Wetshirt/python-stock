@@ -1,10 +1,30 @@
 
 def isStrongBuy(df):
 
+    if not filterSMA(df['Close']):
+        return False
+    
     if not filterKD(df['k'], df['d']):
         return False
-
     return True
+
+'''
+簡單移動平均線高於指數移動平均線為多頭市場信號。
+指數移動平均線高於簡單移動平均線為空頭市場信號。
+
+SMA > EMA: Buy
+EMA > SMA: Sell
+'''
+def filterSMA(Close):
+
+    SMA = Close.rolling(window=20).mean()
+    EMA = Close.ewm(span=20, adjust=False).mean()
+
+    s_value = list(SMA.tail(1))[0]
+    e_value = list(EMA.tail(1))[0]
+
+    return s_value > e_value
+
 '''
 source: https://www.cmoney.tw/learn/course/technicals/topic/484
 

@@ -28,12 +28,12 @@ def main():
         try:
             # 抓取最近30天的資料
             # getStockData(stockId, 30)
-            df = craw.getStockData(s, 30)
+            df = craw.getStockData(s, 60)
             if df is None:
                 continue
             if alg.isStrongBuy(df):
                 recommendStocks[s] = list(df['Volume'].tail(1))[0]
-        except:  
+        except:
             print("Error: Step Over!!")
             # 避免爬蟲次數太快被擋住
             time_duration = 90

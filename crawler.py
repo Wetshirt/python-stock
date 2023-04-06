@@ -21,7 +21,7 @@ def getStockData(stockId, days):
     period1 = start - initial
     period2 = end - initial
     s1 = period1.days * days
-    s2 = period2.days * days
+    s2 = period2.days * (days + 1)
 
     # 添加header
     url = f"https://query1.finance.yahoo.com/v7/finance/download/{stockId}.TW?period1={str(s1)}&period2={str(s2)}&interval=1d&events=history&includeAdjustedClose=true"
