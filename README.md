@@ -2,8 +2,13 @@
 
 紀錄python分析台股的過程
 
+# 交易策略
 
-# 爬蟲
+[均線](https://gooptions.cc/%e5%9d%87%e7%b7%9a/)
+[KD指標](https://www.cmoney.tw/learn/course/technicals/topic/484)
+
+
+# 數據收集
 
 ## [crawler.py](crawler.py)
 
@@ -24,11 +29,18 @@ yahoo finance爬取
 
 >request次數太快疑似會被擋住90秒 !!
 
-# 分析
+
+
+# 執行交易
+(TBC)
 
 # 回測
 
 # Todo
+
+1. export conda env
+2. why ta-lib data different from trading software?
+
 
 # Reference
 
