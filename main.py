@@ -45,9 +45,9 @@ def main():
     # save result to csv
     with open('res.csv', 'w', newline='') as f:  
         writer = csv.writer(f)
-        writer.writerow(['代號', '成交量'])
+        writer.writerow(['代號', '成交量', '網址'])
         for k, v in recommendStocks.items():
-            writer.writerow([k, v])
+            writer.writerow([k, v, f'https://www.cmoney.tw/forum/stock/{k}'])
 
 if __name__ == '__main__':
     time_start = time.time() #開始計時
